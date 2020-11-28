@@ -23,7 +23,7 @@ const robot = {
     },
 
     set energyLevel(newLevel){
-        if (typeof newLevel === "number"){
+        if (typeof newLevel === "number" && newLevel >= 0){
             return this._energyLevel = newLevel;
         } else {
             return "Please enter a number for the energy level";
