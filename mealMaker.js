@@ -85,7 +85,14 @@ const menu = {
     },
 
     generateRandomMeal: function (){
+        //Generating an automatic 3 meal course
+        const appetizer = this.getRandomDishFromCourse("appetizers");
+        const main = this.getRandomDishFromCourse("mains");
+        const dessert = this.getRandomDishFromCourse("desserts");
 
+        const totalPrice = appetizer.price + main.price + dessert.price;
+
+        return `Your meal is ${appetizer.name}, ${main.name}, and ${dessert.name}. The price for this 3-course meal is $${totalPrice}.`
     }
 
 };
