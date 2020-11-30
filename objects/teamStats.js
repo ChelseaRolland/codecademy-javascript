@@ -105,3 +105,5 @@ team.addGame("Browns", 7, 3);
 team.addGame("Ravens", 17, 13);
 
 //console.log(team.games);
+
+//console.log(team.games()); --> this is a getter so this will cause an error message with the ending ()
