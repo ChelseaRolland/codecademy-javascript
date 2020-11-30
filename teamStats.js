@@ -24,6 +24,31 @@ const team = {
     // set games(newGame){
     //     return this._games = newGame;
     // }
+
+    //methods
+    addPlayer(firstName, lastName, age){
+        //Create a new player
+        let player = {
+            firstName,
+            lastName,
+            age
+        };
+
+        //add the player to the players property array
+        this.players.push(player);
+    },
+
+    addGame(opponent, teamPoints, opponentPoints){
+        //Create a new game object
+        let game = {
+            opponent,
+            teamPoints,
+            opponentPoints
+        };
+
+        //add the game to the games property array
+        this.games.push(game);
+    }
 };
 
 //adding team players
@@ -69,3 +94,14 @@ team.games.push({
 
 //console.log(team.games);
 
+team.addPlayer("Steph", "Curry", 28);
+team.addPlayer("Lisa", "Leslie", 44);
+team.addPlayer("Bugs", "Bunny", 76);
+
+//console.log(team.players);
+
+team.addGame("Cowboys", 13, 9);
+team.addGame("Browns", 7, 3);
+team.addGame("Ravens", 17, 13);
+
+//console.log(team.games);
