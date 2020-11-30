@@ -52,6 +52,41 @@ const menu = {
                 desserts: this.desserts
             }
         }
+    },
+
+    addDishToCourse(courseName, dishName, dishPrice) {
+        const dish = {
+            name: dishName,
+            price: dishPrice
+        }
+
+        // if (courseName === "appetizers"){
+        //     this.courses.appetizers.push(dish);
+        // }
+        //
+        // if (courseName === "mains"){
+        //     this.courses.mains.push(dish);
+        // }
+        //
+        // if (courseName === "desserts"){
+        //     this.courses.desserts.push(dish);
+        // }
+
+        this.courses[courseName].push(dish);
+    },
+
+    getRandomDishFromCourse: function (courseName){
+        //Retrieve array of given courses dishes form the menu's courses object
+        const dishes = this.courses[courseName];
+        //Generate a random index with the dishes length
+        const randomIndex = Math.floor(Math.random() * dishes.length);
+        //Return a dish from dishes using the random index
+        return dishes[randomIndex];
+    },
+
+    generateRandomMeal: function (){
+
     }
+
 };
 
