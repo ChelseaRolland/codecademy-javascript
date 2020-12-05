@@ -16,7 +16,7 @@ class HospitalEmployee {
     }
 
     takeVacationDays(daysOff){
-        this._remainingVacationDays = this._remainingVacationDays - daysOff;
+        this._remainingVacationDays -= daysOff;
         return this._remainingVacationDays;
     }
 }
@@ -31,6 +31,10 @@ class Nurse extends HospitalEmployee {
     get certifications(){
         return this._certifications;
     }
+
+    addCertification(newCertification) {
+        this._certifications.push(newCertification);
+    }
 }
 
 const nurseOlynyk = new Nurse ("Olynyk", ["Trauma", "Pediatrics"]);
@@ -39,3 +43,8 @@ console.log(nurseOlynyk.name);
 console.log(nurseOlynyk.certifications)
 console.log(nurseOlynyk.certifications[0]);
 console.log(nurseOlynyk.certifications[1]);
+console.log(nurseOlynyk.takeVacationDays(5));
+console.log(nurseOlynyk.remainingVacationDays);
+
+nurseOlynyk.addCertification("Genetics");
+console.log(nurseOlynyk.certifications);
