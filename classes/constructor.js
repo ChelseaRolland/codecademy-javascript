@@ -24,7 +24,6 @@ class Surgeon {
 
     takeVacationDays(daysOff){
         this._remainingVacationDays = this._remainingVacationDays - daysOff;
-        return this._remainingVacationDays;
     }
 }
 
@@ -92,7 +91,8 @@ class Planet {
 //Instances
 const surgeonDavid = new Surgeon("David", "OBGYN");
 
-//console.log(surgeonDavid.takeVacationDays(5));
+surgeonDavid.takeVacationDays(5);
+console.log(surgeonDavid.remainingVacationDays);
 
 const surgeonSmokey = new Surgeon("Ole", "Brewery");
 const employeeRachel = new Employee(12345, "Rachel", "Newton", "Fiance");
