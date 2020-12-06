@@ -68,7 +68,7 @@ class Media {
     }
 
     toggleCheckOutStatus(){
-
+        return !this._isCheckedOut;
     }
 
     addRating(newRating){
