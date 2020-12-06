@@ -1,9 +1,10 @@
 
 class Movie extends Media{
-    constructor(director, title, runTime) {
+    constructor(director, title, runTime, movieCast) {
         super(title);
         this._director = director;
         this._runTime = runTime;
+        this._movieCast = movieCast;
     }
 
     //getters and setters
@@ -36,6 +37,22 @@ class Movie extends Media{
             this._runTime = newRunTime;
         } else {
             console.error("Please input a NUMBER for the NEW RUNTIME");
+        }
+    }
+
+    get movieCast(){
+        if (typeof this._movieCast === "object"){
+            return this._movieCast;
+        } else {
+            console.error("This is not an ARRAY");
+        }
+    }
+
+    set movieCast(newMovieCast){
+        if (typeof newMovieCast === "object"){
+            this._movieCast = newMovieCast;
+        } else {
+            console.error("Please input an ARRAY for the NEW MOVIE CAST");
         }
     }
 }

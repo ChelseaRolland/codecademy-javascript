@@ -68,10 +68,10 @@ class Media {
     }
 
     addRating(newRating){
-        if (typeof newRating === "number"){
+        if (typeof newRating === "number" && (1 <= newRating <= 5)){
             this._ratings.push(newRating);
         } else {
-            console.error("Please input a NUMBRR for the NEW RATING");
+            console.error("Please input a NUMBER for the NEW RATING and put a NUMBER between 1 AND 5");
         }
     }
 }
@@ -129,10 +129,11 @@ console.log("average of ratings = " , historyOfEverything.getAverageRatings());
 
 //child class
 class Movie extends Media{
-    constructor(director, title, runTime) {
+    constructor(director, title, runTime, movieCast) {
         super(title);
         this._director = director;
         this._runTime = runTime;
+        this._movieCast = movieCast;
     }
 
     //getters and setters
@@ -167,6 +168,22 @@ class Movie extends Media{
             console.error("Please input a NUMBER for the NEW RUNTIME");
         }
     }
+
+    get movieCast(){
+        if (typeof this._movieCast === "object"){
+            return this._movieCast;
+        } else {
+            console.error("This is not an ARRAY");
+        }
+    }
+
+    set movieCast(newMovieCast){
+        if (typeof newMovieCast === "object"){
+            this._movieCast = newMovieCast;
+        } else {
+            console.error("Please input an ARRAY for the NEW MOVIE CAST");
+        }
+    }
 }
 
 const speed = new Movie("Jan de Bont", "Speed", 116);
@@ -184,6 +201,7 @@ class Cd extends Media {
         super(title);
         this._artist = artist;
         this._songs = songs;
+        this._songTitle = "Untitled";
     }
 
     //getters and setters
@@ -219,6 +237,22 @@ class Cd extends Media {
         }
     }
 
+    get songTitle(){
+        if (typeof this._songTitle === "string"){
+            return this._songTitle;
+        } else {
+            console.error("This is NOT a STRING");
+        }
+    }
+
+    set songTitle(newSongTitle){
+        if (typeof newSongTitle === "string"){
+            this._songTitle = newSongTitle;
+        } else {
+            console.error("Please input a STRING for the NEW SONG TITLE");
+        }
+    }
+
     //method
     addSong(newSong){
         if (typeof newSong === "string"){
@@ -227,4 +261,26 @@ class Cd extends Media {
             console.error("Please use a STRING for SONG to add to songs ARRAY");
         }
     }
+
+    shuffle(){
+        //This will be updating the current structure of the songs array
+        for (let i = this._songs.length - 1; i > 0; i--){
+            //create a randomIndex and the TEMP value to store when shuffling the values
+            let randomIndex =  Math.floor(Math.random() * (i + 1));
+
+            //setting the tempValue to be the currentValue of the place in the Array
+            let tempValue = this._songs[i];
+
+            //updating the temp Value to the value of the randomIndex
+            this._songs[i] = this._songs[randomIndex];
+
+            //storing the random index to the temp Value
+            this._songs[randomIndex] = tempValue;
+        }
+
+        return this._songs;
+    }
 }
+
+const christmasAlbum = new Cd("Bub", "Christmas Album 2020", ["yayz", "learning", "advent of code"]);
+console.log(christmasAlbum.shuffle());

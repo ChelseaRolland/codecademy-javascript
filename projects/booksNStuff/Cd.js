@@ -4,6 +4,7 @@ class Cd extends Media {
         super(title);
         this._artist = artist;
         this._songs = songs;
+        this._songTitle = "Untitled";
     }
 
     //getters and setters
@@ -39,6 +40,22 @@ class Cd extends Media {
         }
     }
 
+    get songTitle(){
+        if (typeof this._songTitle === "string"){
+            return this._songTitle;
+        } else {
+            console.error("This is NOT a STRING");
+        }
+    }
+
+    set songTitle(newSongTitle){
+        if (typeof newSongTitle === "string"){
+            this._songTitle = newSongTitle;
+        } else {
+            console.error("Please input a STRING for the NEW SONG TITLE");
+        }
+    }
+
     //method
     addSong(newSong){
         if (typeof newSong === "string"){
@@ -46,5 +63,22 @@ class Cd extends Media {
         } else {
             console.error("Please use a STRING for SONG to add to songs ARRAY");
         }
+    }
+
+    shuffle(){
+        for (let i = this._songs.length - 1; i > 0; i--){
+            //create a randomIndex and the TEMP value to store when shuffling the values
+            let randomIndex =  Math.floor(Math.random() * (i + 1));
+
+            //setting the tempValue to be the currentValue of the place in the Array
+            let tempValue = this._songs[i];
+
+            //updating the temp Value to the value of the randomIndex
+            this._songs[i] = this._songs[randomIndex];
+
+            //storing the random index to the temp Value
+            this._songs[randomIndex] = tempValue;
+        }
+        return this._songs;
     }
 }
