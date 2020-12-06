@@ -1,3 +1,4 @@
+import {Media} from "./Media";
 
 class Cd extends Media {
     constructor(artist, title, songs) {
@@ -66,19 +67,27 @@ class Cd extends Media {
     }
 
     shuffle(){
-        for (let i = this._songs.length - 1; i > 0; i--){
+        /* Stack Overflow  Explanation -->
+
+        It picks a random element for each original array element, and excludes it from the next draw, like picking randomly from a deck of cards.
+
+        This clever exclusion swaps the picked element with the current one, then picks the next random element from the remainder, looping backwards for optimal efficiency, ensuring the random pick is simplified (it can always start at 0), and thereby skipping the final element. */
+
+        //Do not want the current array to change so create a copy of the array
+        let songArr = this._songs.slice(0);
+        for (let i = songArr.length - 1; i > 0; i--){
             //create a randomIndex and the TEMP value to store when shuffling the values
             let randomIndex =  Math.floor(Math.random() * (i + 1));
 
             //setting the tempValue to be the currentValue of the place in the Array
-            let tempValue = this._songs[i];
+            let tempValue = songArr[i];
 
-            //updating the temp Value to the value of the randomIndex
-            this._songs[i] = this._songs[randomIndex];
+            //updating the currentValue to the value of the randomIndex
+            songArr[i] = songArr[randomIndex];
 
             //storing the random index to the temp Value
-            this._songs[randomIndex] = tempValue;
+            songArr[randomIndex] = tempValue;
         }
-        return this._songs;
+        return songArr;
     }
 }
