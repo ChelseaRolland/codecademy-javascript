@@ -1,4 +1,3 @@
-"use strict";
 
 //parent class
 class Media {
@@ -58,17 +57,14 @@ class Media {
     }
 
     //methods
-    getAverageRatings(ratingsArr){
-        let total = 0;
-        for (let i = 0; i < ratingsArr.length; i++){
-            total += ratingsArr[i];
-        }
+    getAverageRatings(){
+        let total = this.rating.reduce((total, rating) => total + rating, 0);
 
-        return total / ratingsArr.length;
+        return total / this.rating.length;
     }
 
     toggleCheckOutStatus(){
-        return !this._isCheckedOut;
+        this._isCheckedOut = !this._isCheckedOut;
     }
 
     addRating(newRating){

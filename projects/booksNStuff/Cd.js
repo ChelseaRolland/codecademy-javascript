@@ -1,4 +1,3 @@
-"use strict";
 
 class Cd extends Media {
     constructor(artist, title, songs) {

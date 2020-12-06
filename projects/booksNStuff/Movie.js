@@ -1,4 +1,3 @@
-"use strict";
 
 class Movie extends Media{
     constructor(director, title, runTime) {
