@@ -1,4 +1,4 @@
-//import {Media} from "./Media";
+import Media from "./Media";
 
 class Book extends Media {
     constructor(author, title, pages) {

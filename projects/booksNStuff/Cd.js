@@ -1,4 +1,4 @@
-import {Media} from "./Media";
+import Media from "./Media";
 
 class Cd extends Media {
     constructor(artist, title, songs) {

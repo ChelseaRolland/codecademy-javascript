@@ -78,6 +78,8 @@ class Media {
     }
 }
 
+//export default Media;
+
 //child class
 class Book extends Media {
     constructor(author, title, pages) {
