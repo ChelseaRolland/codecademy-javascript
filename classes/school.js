@@ -10,19 +10,11 @@ class School {
     }
 
     get level(){
-        if (level === 'primary' || level === 'middle' || level === 'high') {
-            return this._level;
-        } else {
-            return 'Please enter a the correct school level: primary, middle, or high';
-        }
+        return this._level;
     }
 
     get numberOfStudents(){
-        if (typeof numberOfStudents === 'number') {
-            return this._numberOfStudents;
-        } else {
-            return 'Please enter a number!'
-        }
+        return this._numberOfStudents;
     }
 
     set numberOfStudents(newNumberOfStudents) {
