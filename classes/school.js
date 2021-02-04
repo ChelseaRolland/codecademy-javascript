@@ -30,7 +30,7 @@ class School {
     }
 
     static pickSubstituteTeacher(substituteTeachers){
-        let randomNumber = Math.floor(Math.random * (substituteTeachers.length - 0 + 1) + 0)
+        const randomNumber = Math.floor(Math.random() * (substituteTeachers.length));
         return substituteTeachers[randomNumber];
     }
 }

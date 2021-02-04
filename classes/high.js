@@ -12,7 +12,11 @@ class High extends School{
         if (typeof newSportsTeam === 'object') {
             return this._sportsTeams = newSportsTeam;
         } else {
-            return 'You must assign a string for a sports team';
+            return 'You must assign an array for a sports team';
         }
     }
 }
+
+const alSmith = new High('Al E. Smith', 415, ['Baseball', 'Basketball', 'Volleyball', 'Track and Field']);
+
+console.log(alSmith.sportsTeams);
