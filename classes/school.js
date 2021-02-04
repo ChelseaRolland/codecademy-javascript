@@ -25,7 +25,12 @@ class School {
         }
     }
 
-    quickFacts(){}
+    quickFacts(){
+        return `${this.name} educates ${this.numberOfStudents} students at the ${this.level} school level.`;
+    }
 
-    static pickSubstituteTeacher(){}
+    static pickSubstituteTeacher(substituteTeachers){
+        let randomNumber = Math.floor(Math.random * (substituteTeachers.length - 0 + 1) + 0)
+        return substituteTeachers[randomNumber];
+    }
 }

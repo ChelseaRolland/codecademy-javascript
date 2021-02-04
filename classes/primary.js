@@ -1,6 +1,6 @@
 class Primary extends School{
-    constructor(name, level, numberOfStudents, pickupPolicy){
-        super(name, level, numberOfStudents);
+    constructor(name, numberOfStudents, pickupPolicy){
+        super(name, 'primary', numberOfStudents);
         this._pickupPolicy = pickupPolicy;
     }
 
@@ -16,3 +16,10 @@ class Primary extends School{
         }
     }
 }
+
+const lorrainHansbury = new Primary('Lorraine Hansbury', 514, 'Students must be picked up by a parent, guardian, or a family memeber over the age of 13.');
+
+console.log(lorrainHansbury.quickFacts());
+
+console.log(School.pickSubstituteTeacher(['Jamal Crawford', 'Lou Williams', 'J. R. Smith', 'James Harden', 'Jason Terry', 'Manu Ginobli']));
+
