@@ -23,3 +23,5 @@ console.log(lorrainHansbury.quickFacts());
 
 console.log(School.pickSubstituteTeacher(['Jamal Crawford', 'Lou Williams', 'J. R. Smith', 'James Harden', 'Jason Terry', 'Manu Ginobli']));
 
+let primaryOne = new Primary('Primary One', 111, 'Not now');
+let primaryTwo = new Primary('Primary Two', 222, 'Maybe later');

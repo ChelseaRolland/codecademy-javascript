@@ -20,3 +20,6 @@ class High extends School{
 const alSmith = new High('Al E. Smith', 415, ['Baseball', 'Basketball', 'Volleyball', 'Track and Field']);
 
 console.log(alSmith.sportsTeams);
+
+let highOne = new High('High One', 333, ['yay']);
+let highTwo = new High('High Two', 444, ['dude']);
