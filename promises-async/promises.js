@@ -37,4 +37,10 @@ const order = [["sunglasses", 1], ["bags", 2]];
 const handleSuccess = (resolvedValue) => console.log(resolvedValue);
 const handleFailure = (rejecedValue) => console.log(rejecedValue);
 
+// With .then() only
 checkInventory(order).then(handleSuccess, handleFailure);
+
+// .catch() --> for failures/rejects
+checkInventory(order)
+    .then(handleSuccess)
+    .catch(handleFailure);
