@@ -1,6 +1,7 @@
 const brainstormDinner = require("./async-lib1.js");
 const { shopForBeans, soakTheBeans, cookTheBeans} = require("./async-lib2.js");
 const cookBeanSouffle = require("./async-lib3.js");
+const { steamBroccoli, cookRice, bakeChicken, cookBeans } = require("./async-lib4.js");
 
 const withConstructor = async (num) => {
     return new Promise((resolve, reject) => {
@@ -73,3 +74,18 @@ const hostDinnerParty = async () => {
 
 hostDinnerParty();
 
+//==============================================================
+// Handling Independent Promises
+const serveDinner = async () => {
+    let vegetablePromise = steamBroccoli();
+    let starchPromise = cookRice();
+    let proteinPromise = bakeChicken();
+    let sidePromise = cookBeans();
+
+    console.log(`Dinner is served. We're having ${await vegetablePromise}, ${await starchPromise}, ${await proteinPromise}, and ${await sidePromise}.`);
+}
+
+serveDinner();
+
+//===============================================================
+// 
