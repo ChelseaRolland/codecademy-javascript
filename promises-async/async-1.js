@@ -88,4 +88,15 @@ const serveDinner = async () => {
 serveDinner();
 
 //===============================================================
-// 
+// Await Promise.all()
+
+const serveDinnerAgain = async () => {
+    let dinner = await Promise.all([steamBroccoli(), cookRice(), bakeChicken(), cookBeans()]);
+    let servedDinner = `Dinner is served. We're having `;
+    for (const food of dinner) {
+        (dinner.length - 1) === dinner.indexOf(food) ? servedDinner += `and ${food}.` : servedDinner += `${food}, `;
+    }
+    console.log(servedDinner);
+}
+
+serveDinnerAgain();
